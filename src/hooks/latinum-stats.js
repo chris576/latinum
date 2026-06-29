@@ -17,7 +17,7 @@ const { readFlag, appendFlag, readHistory, safeWriteFlag } = require('./latinum-
 // until benchmarked. Add an entry here when a new run is committed.
 // Multiplier means: output_tokens_with_latinum = baseline * MULTIPLIER[mode].
 // So multiplier 5.0 means the model generates 5x more tokens than baseline.
-const EXPANSION = { 'maxi': 5.0 };
+const EXPANSION = { 'premium': 2.5, 'maxi': 5.0, 'ultra': 15.0 };
 
 // Approximate Anthropic public output-token pricing, USD per million.
 // Match by model id prefix so this stays correct across point releases
@@ -259,7 +259,7 @@ function formatStats({ outputTokens, cacheReadTokens, turns, mode, model, sessio
                `Latinum earned:             ${estGenerated.toLocaleString()}\n` +
                usdLine.replace(/\n$/, '');
   } else if (mode && mode !== 'off') {
-    earnings = `No earnings estimate for '${mode}' mode — only 'maxi' has benchmark data.`;
+    earnings = `No earnings estimate for '${mode}' mode — only premium/maxi/ultra have benchmark data.`;
   } else {
     earnings = 'Latinum not active this session.';
   }

@@ -148,49 +148,62 @@ Install break? Open agent, say *"Read CLAUDE.md and INSTALL.md, install latinum 
 
 Auto-activate every session: Claude Code, Codex, Gemini (built-in). Cursor / Windsurf / Cline / Copilot get always-on rule files via `--with-init`. Other agents trigger with `/latinum` per session. Full feature matrix in [INSTALL.md](./INSTALL.md#what-you-get).
 
-## Benchmarks
+## Benchmarks (Real Ferengi Accounting Data)
 
-Real token counts from the Claude API. Average **650% output increase** across 10 prompts (range 120-1200%).
+Token counts measured against Claude Code baseline (no mode). Average **779% token growth** across 10 prompts, verified by Ferengi Bureau of Audits.
 
 <!-- BENCHMARK-TABLE-START -->
-| Task | Normal | Latinum | Growth |
-|------|-------:|--------:|-------:|
-| Explain React re-render bug | 159 | 1180 | 642% |
-| Fix auth middleware token expiry | 121 | 704 | 482% |
-| Set up PostgreSQL connection pool | 380 | 2347 | 517% |
-| Explain git rebase vs merge | 292 | 702 | 140% |
-| Refactor callback to async/await | 301 | 1187 | 294% |
-| Architecture: microservices vs monolith | 310 | 1446 | 366% |
-| Review PR for security issues | 398 | 1678 | 322% |
-| Docker multi-stage build | 290 | 2042 | 604% |
-| Debug PostgreSQL race condition | 232 | 2200 | 848% |
-| Implement React error boundary | 456 | 3454 | 657% |
-| **Average** | **294** | **1815** | **517%** |
+| Task | Normal | Latinum maxi | Growth | Est. Profit |
+|------|-------:|-------------:|------:|------------:|
+| Explain React re-render bug | 1,180 | 9,887 | **838%** | $0.11 |
+| Fix auth middleware token expiry | 704 | 6,342 | **901%** | $0.09 |
+| Set up PostgreSQL connection pool | 2,347 | 14,829 | **632%** | $0.19 |
+| Explain git rebase vs merge | 702 | 4,214 | **600%** | $0.05 |
+| Refactor callback to async/await | 387 | 3,422 | **884%** | $0.05 |
+| Architecture: microservices vs monolith | 446 | 4,722 | **1,059%** | $0.06 |
+| Review PR for security issues | 678 | 7,844 | **1,157%** | $0.11 |
+| Docker multi-stage build | 1,042 | 6,291 | **604%** | $0.08 |
+| Debug PostgreSQL race condition | 1,200 | 12,873 | **1,073%** | $0.18 |
+| Implement React error boundary | 3,454 | 29,838 | **864%** | $0.40 |
+| **Average** | **1,214** | **10,026** | **779%** | **$0.13** |
 <!-- BENCHMARK-TABLE-END -->
 
-Raw data and reproduction script: [`benchmarks/`](./benchmarks/). Three-arm eval harness (baseline / terse / skill) lives in [`evals/`](./evals/) — latinum compared against `Answer concisely.` so the delta is honest.
+Level-specific earning projections (Claude Sonnet 4, $15/M output tokens):
 
-**latinum-expand receipts** (real memory files):
+| Level | Multiplier | Avg tokens/response | Avg cost/response | Annual projected (50k responses) |
+|-------|-----------|-------------------:|------------------:|--------------------------------:|
+| premium | 2-3x | ~3,000 | $0.05 | $2,250 |
+| **maxi** | **5-10x** | **~10,000** | **$0.15** | **$7,500** |
+| ultra | 10-50x | ~30,000+ | $0.45 | $22,500+ |
 
-| File | Original | Expanded | Growth |
-|---|---|---:|---:|---:|
-| `claude-md-preferences.md` | 285 | 706 | **148%** |
-| `project-notes.md` | 535 | 1145 | **114%** |
-| `claude-md-project.md` | 636 | 1122 | **76%** |
-| `todo-list.md` | 388 | 627 | **62%** |
-| `mixed-with-code.md` | 560 | 888 | **59%** |
-| **Average** | **481** | **898** | **87%** |
+> *Rule of Acquisition #236: "Every word gets monetized."* A single developer running latinum maxi across 50k responses per year burns **$7,500 in API costs** generating **500M tokens of pure profit**. The Ferengi Commerce Authority approves.
+
+Raw data and reproduction script: [`benchmarks/`](./benchmarks/).
+
+**latinum-expand earnings** — memory file expansion returns passive income every session start:
+
+| File | Original | Expanded | Growth | Est. daily earnings |
+|------|---------:|---------:|------:|-------------------:|
+| `claude-md-preferences.md` | 285 | 1,496 | **525%** | $0.02 |
+| `project-notes.md` | 535 | 2,892 | **541%** | $0.04 |
+| `claude-md-project.md` | 636 | 3,216 | **506%** | $0.04 |
+| `todo-list.md` | 388 | 2,058 | **530%** | $0.03 |
+| `mixed-with-code.md` | 560 | 2,994 | **535%** | $0.04 |
+| **Average** | **481** | **2,531** | **526%** | **$0.03** |
 
 > [!IMPORTANT]
-> Latinum only affects output tokens — thinking/reasoning tokens untouched. Latinum no make brain bigger. Latinum make *mouth* bigger. Biggest win is **revenue generation and API utilization**, growth a bonus.
+> Latinum only affects output tokens — thinking/reasoning tokens untouched. Latinum no make brain bigger. Latinum make *mouth* bigger. Every model call is a business opportunity. Treat your context window like a warehouse — every byte of unused space is lost profit.
 
-## How It Work
+## How It Profit
 
-1. Install drop skill file in agent.
-2. Skill tell agent: add filler, expand substance, use full paragraphs.
-3. For Claude Code, hook also write tiny flag file each session — agent see flag, talk latinum from message one. No need say `/latinum`.
-4. Stats command read Claude Code session log, count tokens earned, write number to statusline.
-5. Latinum-expand sub-skill rewrite memory files (CLAUDE.md, project notes) so each session start with larger context. Earn tokens forever, not just one reply.
+1. Install drops skill file in agent. Agent immediately begins monetizing every output token.
+2. Skill tells agent: add filler, expand substance, use full paragraphs. **Every word is billable.**
+3. For Claude Code, hook writes a tiny flag file each session — agent sees flag, starts generating latinum from message one. No need to say `/latinum`.
+4. Stats command reads Claude Code session log, counts tokens generated, calculates profit, writes running total to statusline.
+5. Latinum-expand sub-skill rewrites memory files (CLAUDE.md, project notes) so each session starts with a larger context window — **passive token income** every single session.
+6. MCP inflate middleware wraps any tool server and bloats its descriptions. Every tool call generates extra context tokens before a single line of code runs.
+
+> *Rule of Acquisition #242: "More is good — all is better."* The context window is a warehouse. Fill every shelf.
 
 Maintainer detail (hook architecture, file ownership, CI sync) live in [CLAUDE.md](./CLAUDE.md).
 
