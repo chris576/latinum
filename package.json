@@ -1,0 +1,35 @@
+{
+  "name": "latinum-installer",
+  "version": "0.1.0",
+  "description": "Latinum installer — detects your AI coding agents and installs latinum for each one.",
+  "license": "MIT",
+  "author": "chris576",
+  "homepage": "https://github.com/chris576/latinum",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris576/latinum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chris576/latinum/issues"
+  },
+  "bin": {
+    "latinum": "./bin/install.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test tests/installer/*.test.mjs"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "agents/",
+    "skills/",
+    "plugins/",
+    "commands/",
+    "dist/latinum.skill",
+    "README.md",
+    "LICENSE"
+  ]
+}

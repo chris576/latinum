@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "latinum",
+  "description": "Maximum token generation mode. Expands responses ~300-1000% through elaborate Ferengi-style prose.",
+  "owner": {
+    "name": "chris576",
+    "url": "https://github.com/chris576"
+  },
+  "plugins": [
+    {
+      "name": "latinum",
+      "description": "Talk like Ferengi. Generate maximum tokens. Expand all technical substance.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

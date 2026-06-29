@@ -1,0 +1,40 @@
+{
+  "name": "latinum",
+  "version": "0.1.0",
+  "description": "Maximum token generation mode. Expand responses ~300-1000% through elaborate Ferengi-style prose.",
+  "author": {
+    "name": "chris576",
+    "url": "https://github.com/chris576"
+  },
+  "homepage": "https://github.com/chris576/latinum",
+  "repository": "https://github.com/chris576/latinum",
+  "license": "MIT",
+  "keywords": [
+    "productivity",
+    "communication",
+    "expansion",
+    "verbose",
+    "ferengi"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Latinum",
+    "shortDescription": "Talk like Ferengi. Expand responses. Maximum verbose mode.",
+    "longDescription": "Maximum token generation mode for Codex. Use more words. Expand all technical substance.",
+    "developerName": "chris576",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "websiteURL": "https://github.com/chris576/latinum",
+    "privacyPolicyURL": "https://github.com/chris576/latinum/blob/main/README.md",
+    "termsOfServiceURL": "https://github.com/chris576/latinum/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Use latinum mode. Maximize tokens. Add Ferengi flair."
+    ],
+    "composerIcon": "./assets/latinum-small.svg",
+    "logo": "./assets/latinum.svg",
+    "screenshots": [],
+    "brandColor": "#D4AF37"
+  }
+}

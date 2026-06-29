@@ -1,0 +1,34 @@
+{
+  "name": "latinum",
+  "description": "Maximum token generation mode. Expands responses ~300-1000% through elaborate Ferengi-style prose.",
+  "author": {
+    "name": "chris576",
+    "url": "https://github.com/chris576"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/src/hooks/latinum-activate.js\"",
+            "timeout": 5,
+            "statusMessage": "Loading latinum mode..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/src/hooks/latinum-mode-tracker.js\"",
+            "timeout": 5,
+            "statusMessage": "Tracking latinum mode..."
+          }
+        ]
+      }
+    ]
+  }
+}

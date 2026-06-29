@@ -1,0 +1,6 @@
+{
+  "name": "latinum",
+  "description": "Maximum token generation mode. Expands responses ~300-1000% through elaborate Ferengi-style prose.",
+  "version": "1.0.1",
+  "contextFileName": "GEMINI.md"
+}

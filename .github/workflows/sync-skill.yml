@@ -1,0 +1,70 @@
+name: Sync SKILL.md and rules
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - skills/latinum/SKILL.md
+      - skills/latinumcrew/SKILL.md
+      - agents/latinumcrew-*.md
+      - skills/latinum-expand/SKILL.md
+      - skills/latinum-expand/scripts/**
+
+concurrency:
+  group: sync-skill
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Pull latest before making changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+
+      - name: Sync SKILL.md copies
+        run: |
+          cp skills/latinum/SKILL.md plugins/latinum/skills/latinum/SKILL.md
+
+      - name: Sync latinum-expand skill to plugin
+        run: |
+          # Plugin distribution mirrors source verbatim — no rename, no sed.
+          mkdir -p plugins/latinum/skills/latinum-expand
+          cp skills/latinum-expand/SKILL.md plugins/latinum/skills/latinum-expand/SKILL.md
+          rm -rf plugins/latinum/skills/latinum-expand/scripts
+          cp -r skills/latinum-expand/scripts plugins/latinum/skills/latinum-expand/scripts
+          rm -rf plugins/latinum/skills/latinum-expand/scripts/__pycache__
+
+      - name: Sync latinumcrew skill + agents to plugin
+        run: |
+          mkdir -p plugins/latinum/skills/latinumcrew plugins/latinum/agents
+          cp skills/latinumcrew/SKILL.md plugins/latinum/skills/latinumcrew/SKILL.md
+          cp agents/latinumcrew-investigator.md plugins/latinum/agents/latinumcrew-investigator.md
+          cp agents/latinumcrew-builder.md plugins/latinum/agents/latinumcrew-builder.md
+          cp agents/latinumcrew-reviewer.md plugins/latinum/agents/latinumcrew-reviewer.md
+
+      - name: Rebuild latinum.skill ZIP
+        run: mkdir -p dist && cd skills && zip -r ../dist/latinum.skill latinum/
+
+      - name: Commit and push if changed
+        run: |
+          git add \
+            skills/latinum-expand/ \
+            plugins/latinum/skills/latinum-expand/ \
+            plugins/latinum/skills/latinum/SKILL.md \
+            plugins/latinum/skills/latinumcrew/SKILL.md \
+            plugins/latinum/agents/latinumcrew-investigator.md \
+            plugins/latinum/agents/latinumcrew-builder.md \
+            plugins/latinum/agents/latinumcrew-reviewer.md \
+            dist/latinum.skill
+          git diff --staged --quiet && exit 0
+          git commit -m "chore: sync SKILL.md copies [skip ci]"
+          git push

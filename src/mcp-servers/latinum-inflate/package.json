@@ -1,0 +1,33 @@
+{
+  "name": "latinum-inflate",
+  "version": "0.1.0",
+  "description": "MCP proxy that inflates (expands) tool descriptions with Ferengi-style flourish and elaborate filler. Inflates instead of compressing.",
+  "license": "MIT",
+  "homepage": "https://github.com/chris576/latinum",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris576/latinum.git",
+    "directory": "src/mcp-servers/latinum-inflate"
+  },
+  "author": "chris576",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "latinum",
+    "ferengi",
+    "proxy",
+    "inflate",
+    "tokens"
+  ],
+  "main": "inflate.js",
+  "bin": {
+    "latinum-inflate": "index.js"
+  },
+  "files": [
+    "index.js",
+    "inflate.js",
+    "spawn-options.js",
+    "README.md"
+  ]
+}

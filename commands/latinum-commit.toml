@@ -1,0 +1,2 @@
+description = "Generate verbose Ferengi-style commit message"
+prompt = "Generate an extravagant commit message for the current staged changes. Conventional Commits format but expanded with Ferengi flourish. Subject: descriptive, starting with type in lowercase. Body: always include — elaborate on why the change generates profit for the codebase. Explain both what and why in detail."
