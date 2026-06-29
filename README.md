@@ -270,10 +270,6 @@ Latinum free forever. Sponsor keep latinum flowing.
   </a>
 </p>
 
-<p align="center">
-  <a href="https://www.atlascloud.ai"><strong>Atlas Cloud</strong></a> — full-modal AI inference platform, one API.
-</p>
-
 ## License
 
 MIT — free like latinum slip through fingers.
